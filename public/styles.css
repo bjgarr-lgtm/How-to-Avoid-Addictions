@@ -1,0 +1,518 @@
+:root{
+  --emoji-font: "Apple Color Emoji","Segoe UI Emoji","Noto Color Emoji";
+}
+
+body, button, input, textarea{
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, var(--emoji-font), sans-serif;
+}
+
+.choiceBtn, .gameOverlay, .gameOverlayInner{
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, var(--emoji-font), sans-serif;
+}
+
+:root{
+  --bg: #0b1220;
+  --card: rgba(255,255,255,0.08);
+  --card2: rgba(255,255,255,0.12);
+  --text: rgba(255,255,255,0.92);
+  --muted: rgba(255,255,255,0.7);
+  --border: rgba(255,255,255,0.14);
+  --primary: #7c5cff;
+  --primary2:#44d7b6;
+  --danger:#ff5577;
+  --shadow: 0 14px 40px rgba(0,0,0,0.35);
+  --radius: 18px;
+  --max: 980px;
+  --font: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial;
+}
+
+*{ box-sizing:border-box; }
+body{
+  margin:0;
+  font-family:var(--font);
+  color:var(--text);
+  background: radial-gradient(1200px 600px at 10% 10%, rgba(124,92,255,0.35), transparent 60%),
+              radial-gradient(900px 500px at 90% 20%, rgba(68,215,182,0.25), transparent 60%),
+              linear-gradient(180deg, #070b14, var(--bg));
+  min-height:100vh;
+}
+
+.topbar{
+  position:sticky; top:0;
+  backdrop-filter: blur(12px);
+  background: rgba(11,18,32,0.7);
+  border-bottom:1px solid var(--border);
+  z-index:10;
+  padding:14px 16px;
+}
+
+.brand{ display:flex; gap:12px; align-items:center; max-width:var(--max); margin:0 auto; }
+.logo{
+  width:150px;
+  height:85px;
+  border-radius:4px;
+  background: transparent;   /* key */
+  box-shadow: none;          /* optional */
+  overflow: hidden;
+  display:grid;
+  place-items:center;
+}
+
+.logo img{
+  width:100%;
+  height:100%;
+  object-fit: contain;
+  display:block;
+}
+
+
+h1{ margin:0; font-size:18px; }
+.subtitle{ margin:2px 0 0; color:var(--muted); font-size:13px; }
+
+.tabs{
+  max-width:var(--max);
+  margin:12px auto 0;
+  display:flex; gap:8px; flex-wrap:wrap;
+}
+.tab{
+  border:1px solid var(--border);
+  background: rgba(255,255,255,0.06);
+  color:var(--text);
+  padding:10px 12px;
+  border-radius:999px;
+  cursor:pointer;
+  font-weight:600;
+  font-size:13px;
+}
+.tab.active{
+  background: linear-gradient(135deg, rgba(124,92,255,0.9), rgba(68,215,182,0.85));
+  border-color: transparent;
+  color:#06101a;
+}
+
+.container{ max-width:var(--max); margin:0 auto; padding:18px 16px 90px; }
+.view{ animation: fade .18s ease-out; }
+.hidden{ display:none !important; }
+
+@keyframes fade { from{opacity:.2; transform: translateY(6px);} to{opacity:1; transform:none;} }
+
+.card{
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding:16px;
+  box-shadow: var(--shadow);
+}
+
+.hero h2{ margin-top:0; font-size:22px; }
+
+.grid{
+  margin-top:14px;
+  display:grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap:12px;
+}
+.grid > .card{ grid-column: span 4; }
+@media (max-width: 860px){
+  .grid > .card{ grid-column: span 12; }
+}
+
+.row{ display:flex; gap:8px; flex-wrap:wrap; margin:12px 0; }
+.pill{
+  background: rgba(255,255,255,0.08);
+  border:1px solid var(--border);
+  padding:8px 10px;
+  border-radius:999px;
+  font-size:12px;
+}
+
+.actions{ display:flex; gap:10px; flex-wrap:wrap; margin-top:14px; }
+.btn{
+  border:1px solid var(--border);
+  background: rgba(255,255,255,0.06);
+  color:var(--text);
+  padding:11px 14px;
+  border-radius:14px;
+  cursor:pointer;
+  font-weight:700;
+}
+.btn.small{ padding:8px 10px; font-size:12px; border-radius:12px; }
+.btn.primary{
+  background: linear-gradient(135deg, rgba(124,92,255,0.95), rgba(68,215,182,0.9));
+  border-color: transparent;
+  color:#06101a;
+}
+.btn.danger{
+  background: rgba(255,85,119,0.15);
+  border-color: rgba(255,85,119,0.35);
+  color: #ffd7df;
+}
+.btn:active{ transform: translateY(1px); }
+
+.muted{ color:var(--muted); }
+.big{ font-size:38px; margin:6px 0; font-weight:900; letter-spacing:-0.5px; }
+
+.divider{
+  height:1px;
+  background: var(--border);
+  margin:16px 0;
+}
+
+.badge{
+  display:inline-flex;
+  align-items:center;
+  padding:6px 10px;
+  border-radius:999px;
+  border:1px solid var(--border);
+  background: rgba(255,255,255,0.07);
+  font-size:12px;
+  color:var(--muted);
+}
+
+.lessonHeader{
+  display:flex; align-items:center; justify-content:space-between;
+  gap:12px;
+}
+.lessonBody p{ line-height:1.5; }
+.lessonBody ul{ margin:8px 0 0 18px; }
+
+.chips{ display:flex; flex-wrap:wrap; gap:8px; }
+.chip{
+  border:1px solid var(--border);
+  background: rgba(255,255,255,0.06);
+  padding:8px 10px;
+  border-radius:999px;
+  font-size:12px;
+}
+
+.gameCard{ background: var(--card2); }
+
+.footer{
+  position:fixed;
+  left:0; right:0; bottom:0;
+  border-top:1px solid var(--border);
+  background: rgba(11,18,32,0.85);
+  backdrop-filter: blur(12px);
+  display:flex;
+  justify-content:center;
+  gap:10px;
+  padding:10px 12px;
+  color:var(--muted);
+}
+.dot{ opacity:0.5; }
+.link{
+  border:none;
+  background:none;
+  color: rgba(68,215,182,0.95);
+  font-weight:800;
+  cursor:pointer;
+}
+
+/* Stars + shop */
+.stars{
+  display:flex;
+  gap:10px;
+  margin:12px 0 6px;
+  justify-content:center;
+}
+.star{
+  font-size:34px;
+  border:none;
+  background:none;
+  cursor:pointer;
+  color: rgba(255,255,255,0.35);
+  transition: transform 0.08s ease, color 0.08s ease;
+}
+.star:hover{ transform: translateY(-1px) scale(1.06); }
+.star.active{ color: rgba(255,220,90,0.95); }
+
+.shopCard{ background: rgba(255,255,255,0.08); }
+.shopBadge{ font-size:36px; }
+.locked{ opacity:0.6; }
+
+/* Profile polish */
+.profileGrid { align-items: stretch; }
+
+#avatar-grid{ display:flex; flex-wrap:wrap; gap: 10px; }
+
+.avatarChip{
+  position: relative;
+  min-width: 46px;
+  min-height: 46px;
+  display: grid;
+  place-items: center;
+  font-size: 22px;
+  border-radius: 999px;
+}
+
+.activeAvatar{
+  outline: 2px solid rgba(68,215,182,0.85);
+  box-shadow: 0 0 0 3px rgba(68,215,182,0.15);
+}
+
+.avatarPlus{
+  font-size: 22px;
+  font-weight: 900;
+  color: rgba(255,255,255,0.9);
+  background: rgba(255,255,255,0.08);
+}
+
+.avatarImg{
+  width: 34px;
+  height: 34px;
+  border-radius: 999px;
+  object-fit: cover;
+  border: 1px solid rgba(255,255,255,0.18);
+}
+
+.profileHeader{
+  display:flex;
+  gap:16px;
+  align-items:flex-start;
+  justify-content:space-between;
+  flex-wrap:wrap;
+}
+
+.profileIdentity{
+  display:flex;
+  gap:14px;
+  align-items:flex-start;
+  min-width: 280px;
+  flex: 1 1 360px;
+}
+
+.profileAvatar{
+  width:56px;
+  height:56px;
+  border-radius:16px;
+  border:1px solid var(--border);
+  background: rgba(255,255,255,0.06);
+  display:grid;
+  place-items:center;
+  overflow:hidden;
+  flex: 0 0 auto;
+}
+.profileAvatar span{ font-size:28px; line-height:1; }
+.profileAvatar img{ width:100%; height:100%; object-fit:cover; display:block; }
+
+.profileNameBlock{ min-width: 220px; flex: 1 1 auto; }
+.profileNameRow{ display:flex; gap:10px; align-items:center; margin-top:6px; }
+
+.textInput{
+  flex: 1 1 auto;
+  min-width: 0;
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: rgba(255,255,255,0.06);
+  color: var(--text);
+  outline: none;
+}
+.textInput:focus{
+  border-color: rgba(124,92,255,0.65);
+  box-shadow: 0 0 0 3px rgba(124,92,255,0.18);
+}
+
+.profileStats{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+  justify-content:flex-end;
+  flex: 0 1 auto;
+}
+.statPill{
+  border:1px solid var(--border);
+  background: rgba(255,255,255,0.06);
+  border-radius: 14px;
+  padding: 10px 12px;
+  min-width: 140px;
+}
+.statValue{
+  font-weight: 900;
+  font-size: 22px;
+  margin-top: 2px;
+}
+
+.profileTwoCol{
+  display:grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap:12px;
+}
+@media (max-width: 860px){
+  .profileTwoCol{ grid-template-columns: 1fr; }
+  .profileStats{ justify-content:flex-start; }
+}
+
+/* Tracks dropdown readability */
+#view-tracks select {
+  color: #111;
+  background: #fff;
+}
+#view-tracks select option {
+  color: #111;
+  background: #fff;
+}
+
+/* Custom avatar delete */
+.avatarDelete{
+  position:absolute;
+  top:-6px;
+  right:-6px;
+  width:20px;
+  height:20px;
+  border-radius:999px;
+  border:1px solid rgba(255,255,255,0.18);
+  background: rgba(0,0,0,0.55);
+  color: rgba(255,255,255,0.92);
+  font-weight: 900;
+  line-height: 18px;
+  cursor:pointer;
+  display:grid;
+  place-items:center;
+  padding:0;
+}
+.avatarDelete:hover{ background: rgba(255,85,119,0.35); }
+
+/* (Overlay styles injected by app.js too; this is fine.) */
+
+/* =========================
+   Mini-Games: force full-width grid (no sidebar)
+========================= */
+#view-games .grid{
+  width: 100%;
+}
+
+/* If you previously used a flex layout wrapper, this prevents shrinking */
+#view-games .card{
+  width: 100%;
+}
+
+/* Make all game tiles same size + layout */
+.gameCard{
+  display:flex;
+  flex-direction:column;
+  min-height: 190px;
+}
+
+.gameCard .btn{
+  margin-top:auto; /* pushes button to bottom */
+  width: fit-content;
+}
+
+/* Featured top tile */
+.gameCard.featured{
+  grid-column: span 12;
+  min-height: 220px;
+}
+@media (max-width: 860px){
+  .gameCard.featured{ grid-column: span 12; }
+}
+
+
+/* =========================
+   Mini-Games grid: true tile layout (fix tiny/offset cards)
+========================= */
+#games-grid.grid{
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 12px;
+}
+
+/* override the global 12-col span rule for game tiles only */
+#games-grid.grid > .card{
+  grid-column: auto;
+}
+
+/* Home condense */
+.homeGrid > .homeToday{ grid-column: span 9; }
+.homeGrid > .homeSafety{ grid-column: span 3; }
+
+.homeTodayGrid{
+  display:grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 12px;
+  margin-top: 10px;
+}
+
+@media (max-width: 860px){
+  .homeGrid > .homeToday,
+  .homeGrid > .homeSafety{ grid-column: span 12; }
+
+  .homeTodayGrid{ grid-template-columns: 1fr; }
+}
+
+/* Dashboard layout */
+.dashTop{
+  display:flex;
+  gap:14px;
+  align-items:flex-start;
+  justify-content:space-between;
+  flex-wrap:wrap;
+}
+
+.dashStats{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+  justify-content:flex-end;
+}
+
+.dashGrid{
+  margin-top: 14px;
+  display:grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap:12px;
+}
+.dashGrid > .card{ grid-column: span 6; }
+.dashGrid > .card:nth-child(3){ grid-column: span 12; } /* Progress card full width */
+@media (max-width: 860px){
+  .dashGrid > .card{ grid-column: span 12; }
+}
+
+/* =========================
+   Home: condensed layout
+========================= */
+.homeGridCompact > .card{ grid-column: span 6; }
+@media (max-width: 860px){
+  .homeGridCompact > .card{ grid-column: span 12; }
+}
+
+/* Make the Home hero feel tighter */
+.hero p{ max-width: 70ch; }
+.hero .actions{ margin-top: 12px; }
+
+/* =========================
+   Profile: less ugly, better structure
+========================= */
+.profileTwoCol{
+  display:grid;
+  grid-template-columns: 1.3fr 0.7fr;
+  gap:12px;
+}
+@media (max-width: 860px){
+  .profileTwoCol{ grid-template-columns: 1fr; }
+}
+
+/* Progress-in-profile grid */
+.profileMiniStats > .card{ grid-column: span 4; }
+@media (max-width: 860px){
+  .profileMiniStats > .card{ grid-column: span 12; }
+}
+
+/* Cards inside cards: reduce visual “puff” */
+.profileProgressCard .card{
+  background: rgba(255,255,255,0.06);
+  box-shadow: none;
+}
+
+.profileStats .statPill{ min-width: 120px; }
+.profileAvatar{ border-radius: 14px; }
+
+/* Profile: make stat pills feel cleaner + fit 5 across */
+.profileStats { gap: 10px; }
+.statPill { min-width: 120px; }
+.statValue { letter-spacing: -0.3px; }
+
+/* Make the right column badges area align nicely */
+#owned-badges .chip { white-space: nowrap; }
+
